@@ -1,0 +1,36 @@
+body {
+  background-color: #202020;
+  color: white;
+}
+.weather-card {
+  background-color: #00aaff;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.weather-card h1 {
+  font-size: 50px;
+}
+.weather-card .card {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.hourly-forecast,
+.five-day-forecast {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer {
+  background-color: #333;
+  color: #ccc;
+  padding: 40px 0;
+  margin-top: 50px;
+}
+.footer .row div {
+  margin-bottom: 20px;
+}
+.footer a {
+  color: #ccc;
+}
