@@ -3,10 +3,18 @@ body {
   color: white;
 }
 .weather-card {
-  background-color: #00aaff;
   border-radius: 15px;
   padding: 20px;
   margin: 20px 0;
+}
+
+.color {
+  background-color: #00aaff;
+}
+
+.weather-icon {
+  width: 50px; /* Size of the weather icon */
+  height: auto;
 }
 .weather-card h1 {
   font-size: 50px;
