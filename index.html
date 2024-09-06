@@ -16,13 +16,15 @@
         <div class="row">
           <div class="col-12 col-md-4 mb-4 mb-md-0">
             <input
+              id="searchBox"
               type="text"
               class="form-control mb-4"
               placeholder="Search Location"
             />
-            <h2 class="location text-decoration-underline mb-4">
-              Kalagedihena, Western Province, Sri Lanka
-            </h2>
+            <h2
+              id="locationText"
+              class="location text-decoration-underline mb-4"
+            ></h2>
             <div
               class="card text-center p-4 mx-auto shadow mb-4"
               style="background-color: #31b5e6"
@@ -35,33 +37,59 @@
                   10:48 PM
                 </h2>
                 <img
-                  src="https://via.placeholder.com/50"
+                  id="currentWeatherImg"
+                  src=""
                   alt="Weather Icon"
                   class="weather-icon mb-2"
+                  style="display: none; height: 80px; width: 80px"
                 />
-                <h2 class="display-4 text-black">26°C</h2>
-                <h4 class="font-monospace">Partly cloudy</h4>
+                <h2 id="temp_c" class="display-4 text-black"></h2>
+                <h4 id="descText" class="font-monospace"></h4>
               </div>
             </div>
-            <div>
-              <h5 class="font-monospace mb-4 text-black">Feels like 31°C</h5>
-            </div>
-            <div class="d-flex justify-content-between">
-              <div class="text-center">
-                <p>Wind</p>
-                <p>5 KM/h</p>
+            <h5 id="feelsLike_c" class="font-monospace mb-4 text-black"></h5>
+
+            <div class="d-flex flex-column align-items-center">
+              <div class="d-flex justify-content-between w-100">
+                <div
+                  class="card text-center m-2"
+                  style="background-color: #31b5e6; width: 45%"
+                >
+                  <div class="card-body">
+                    <p class="m-1 text-black">Wind</p>
+                    <p id="wind_kph" class="m-0"></p>
+                  </div>
+                </div>
+                <div
+                  class="card text-center m-2"
+                  style="background-color: #31b5e6; width: 45%"
+                >
+                  <div class="card-body">
+                    <p class="m-1 text-black">Pressure</p>
+                    <p id="pressure_mb" class="m-0">1010</p>
+                  </div>
+                </div>
               </div>
-              <div class="text-center">
-                <p>Pressure</p>
-                <p>1010 mb</p>
-              </div>
-              <div class="text-center">
-                <p>UV</p>
-                <p>1.0</p>
-              </div>
-              <div class="text-center">
-                <p>Humidity</p>
-                <p>89%</p>
+
+              <div class="d-flex justify-content-between w-100">
+                <div
+                  class="card text-center m-2"
+                  style="background-color: #31b5e6; width: 45%"
+                >
+                  <div class="card-body">
+                    <p class="m-1 text-black">UV</p>
+                    <p id="uv" class="m-0">1</p>
+                  </div>
+                </div>
+                <div
+                  class="card text-center m-2"
+                  style="background-color: #31b5e6; width: 45%"
+                >
+                  <div class="card-body">
+                    <p class="m-1 text-black">Humidity</p>
+                    <p id="humidity" class="m-0">89</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -146,5 +174,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="getData.js"></script>
   </body>
 </html>
