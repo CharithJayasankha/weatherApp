@@ -13,8 +13,8 @@ let localTime = document.getElementById("localTime");
 let apiKey = "a6fe6ee90f0944f8845143548242908";
 
 function fetchWeather(city) {
-  let url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-
+  let url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+  //'https://api.weatherapi.com/v1/current.json?key=a6fe6ee90f0944f8845143548242908&q=Colombo'
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
