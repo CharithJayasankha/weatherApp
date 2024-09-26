@@ -10,6 +10,7 @@ let uv = document.getElementById("uv");
 let humidity = document.getElementById("humidity");
 let localTime = document.getElementById("localTime");
 let hourlyForecast = document.getElementById("hourlyForecast");
+let dayForecast = document.getElementById("dayForecast");
 
 let apiKey = "a6fe6ee90f0944f8845143548242908";
 let array = [];
@@ -45,24 +46,48 @@ function fetchWeather(city) {
 
         let count = 0;
         for (; hourIndex < hours.length; hourIndex++) {
-          if (count == 8) break;
+          if (count == 10) break;
 
           let card = `<div
                 class="card text-center shadow col-6 col-sm-4 col-lg-2 p-2 m-1"
-                style="background-color: #31b5e6; width:150px"
+                style="background-color: #31b5e6; width:120px"
               >
                 <div class="card-body p-1">
-                  <p>${hourIndex}:00</p>
+                  <p style="color:rgba(0, 0, 120, 1);">${hourIndex}:00</p>
                   <img src="${"http:" + hours[hourIndex].condition.icon}">
-                  <h2>${hours[hourIndex].temp_c}°C</h2>
+                  <h4>${hours[hourIndex].temp_c}°C</h4>
                 </div>
               </div>`;
 
           hourlyForecast.innerHTML += card;
           count++;
         }
+        count = 0;
+        for (let index = 1; index < forecastDay.length; index++) {
+          if (count == 5) break;
+
+          let card = `<div
+                class="card text-center shadow col-6 col-sm-4 col-lg-2 p-2 m-1"
+                style="background-color: #31b5e6; width:120px"
+              >
+                <div class="card-body p-1">
+                  <p style="color:rgba(0, 0, 120, 1);">${
+                    forecastDay[index].date
+                  }</p>
+                  // <img src="${
+                    "http:" + forecastDay[index].day.condition.icon
+                  }">
+                  <h4>${forecastDay[index].day.maxtemp_c}°C</h4>
+                  <p>${forecastDay[index].day.condition.text}</p>
+                </div>
+              </div>`;
+
+          dayForecast.innerHTML += card;
+          console.log(forecastDay[index].date);
+          count++;
+        }
       } else {
-        console.error("Invalid data received from API");
+        alert("Enter correct city...");
       }
     })
     .catch((error) => console.error("Error fetching weather data:", error));
@@ -74,6 +99,8 @@ searchBox.addEventListener("keypress", function (e) {
     if (city) {
       fetchWeather(city);
       hourlyForecast.innerHTML = "";
+      dayForecast.innerHTML = "";
+      searchBox.value = "";
     }
   }
 });
