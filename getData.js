@@ -48,6 +48,7 @@ function fetchWeather(city) {
         let hourIndex = Number(time.split(":")[0]) + 1;
 
         let count = 0;
+        // get 10 hour forecast
         for (; hourIndex < hours.length; hourIndex++) {
           if (count == 10) break;
 
@@ -66,6 +67,7 @@ function fetchWeather(city) {
           count++;
         }
         count = 0;
+        // 5 day forecast
         for (let index = 1; index < forecastDay.length; index++) {
           if (count == 5) break;
 
