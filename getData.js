@@ -20,14 +20,16 @@ function fetchWeather(city) {
     .then((response) => response.json())
     .then((data) => {
       if (data && data.location && data.current) {
+        // display the location
         locationText.textContent = `${data.location.name}, ${data.location.region}, ${data.location.country}`;
 
+        //set image
         currentWeatherImg.src = "http:" + data.current.condition.icon;
         currentWeatherImg.style.display = "inline";
         descText.textContent = data.current.condition.text;
 
         let dateTime = data.location.localtime;
-        let time = dateTime.split(" ")[1];
+        let time = dateTime.split(" ")[1]; //only get time
 
         localTime.textContent = time;
         temp_c.textContent = `${data.current.temp_c}°C`;
@@ -38,6 +40,7 @@ function fetchWeather(city) {
         uv.textContent = `${data.current.uv}`;
         humidity.textContent = `${data.current.humidity}%`;
 
+        // get forecast data to array
         let forecastDay = data.forecast.forecastday;
 
         let hours = forecastDay[0].hour;
